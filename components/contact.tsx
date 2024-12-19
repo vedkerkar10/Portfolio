@@ -1,24 +1,59 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin } from "lucide-react"
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log(formData)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleSubmit(event: { preventDefault: () => void; }) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    // Prepare form data
+    const payload = {
+      ...formData,
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY, // Replace with your Web3Forms access key
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSuccessMessage("Your message has been sent successfully!");
+        setFormData({ name: "", email: "", message: "" }); // Clear the form
+      } else {
+        setErrorMessage("Failed to send the message. Please try again later.");
+      }
+    } catch (error) {
+      setErrorMessage("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -32,7 +67,6 @@ export function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-          {/* <p className="text-muted-foreground">Let's discuss your project</p> */}
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -79,7 +113,9 @@ export function Contact() {
                     <Input
                       placeholder="Your Name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                     />
                   </div>
                   <div>
@@ -87,20 +123,30 @@ export function Contact() {
                       type="email"
                       placeholder="Your Email"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                     />
                   </div>
                   <div>
                     <Textarea
                       placeholder="Your Message"
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
                       rows={4}
                     />
                   </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
+                  {successMessage && (
+                    <p className="text-green-600 text-center">{successMessage}</p>
+                  )}
+                  {errorMessage && (
+                    <p className="text-red-600 text-center">{errorMessage}</p>
+                  )}
                 </form>
               </CardContent>
             </Card>
@@ -108,5 +154,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

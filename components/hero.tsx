@@ -19,7 +19,7 @@ export function Hero() {
         >
           <div className="relative w-32 h-32 mx-auto lg:mx-0">
             <Image
-              src="/sponge.png"
+              src="/avatar.jpg"
               alt="Profile"
               fill
               className="rounded-full object-cover"
