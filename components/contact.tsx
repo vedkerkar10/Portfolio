@@ -28,7 +28,7 @@ export function Contact() {
     // Prepare form data
     const payload = {
       ...formData,
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY, // Replace with your Web3Forms access key
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY, // Replace with your Web3Forms access key
     };
 
     try {
