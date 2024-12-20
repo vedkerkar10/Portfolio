@@ -17,7 +17,8 @@ export function Hero() {
           transition={{ duration: 0.5 }}
           className="space-y-8"
         >
-          <div className="relative w-32 h-32 mx-auto lg:mx-0">
+          <div className="flex md:block md:space-y-4 items-center gap-8">
+          <div className="relative w-32 h-32">
             <Image
               src="/avatar.jpg"
               alt="Profile"
@@ -27,10 +28,12 @@ export function Hero() {
             />
           </div>
           
-          <div>
+          
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
               Ved Kerkar
             </h1>
+            </div>
+            <div>
             <h2 className="mt-2 text-lg text-muted-foreground">
               Full Stack Developer
             </h2>
@@ -43,7 +46,7 @@ export function Hero() {
             <Link href="https://github.com/vedkerkar10" className="hover:text-primary transition-colors">
               <Github className="h-6 w-6" />
             </Link>
-            <Link href="https://instagram.com" className="hover:text-primary transition-colors">
+            <Link href="https://www.instagram.com/ved.kerkar10/" className="hover:text-primary transition-colors">
               <Instagram className="h-6 w-6" />
             </Link>
             <Link href="https://linkedin.com" className="hover:text-primary transition-colors">

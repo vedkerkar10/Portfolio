@@ -11,7 +11,7 @@ const skills = [
       { name: "React/Next.js", level: 90 },
       { name: "TypeScript", level: 85 },
       { name: "Tailwind CSS", level: 95 },
-      { name: "Vue.js", level: 80 },
+      { name: "Figma", level: 80 },
     ],
   },
   {
@@ -27,9 +27,9 @@ const skills = [
     category: "Tools & Others",
     items: [
       { name: "Git", level: 90 },
-      { name: "Docker", level: 75 },
-      { name: "AWS", level: 70 },
-      { name: "CI/CD", level: 80 },
+      { name: "Machine Learning", level: 75 },
+      { name: "Image Processing", level: 70 },
+      
     ],
   },
 ]

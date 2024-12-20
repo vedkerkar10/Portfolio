@@ -19,14 +19,14 @@ const projects = [
     id: 2,
     title: "Atlas",
     description: "AI powered job search platform using webscrapper",
-    image: "/sponge.png",
+    image: "/atlas/atlas.png",
     tags: ["React", "Llama", "Python", "Node.js","NLP"],
   },
   {
     id: 3,
     title: "Cartwheel",
     description: "Collaborative task management platform for teams",
-    image: "/sponge.png",
+    image: "cartwheel/home.png",
     tags: ["Vue.js", "Firebase", "Tailwind", "TypeScript"],
   },
 ]

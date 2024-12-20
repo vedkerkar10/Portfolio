@@ -6,22 +6,22 @@ import { Badge } from "@/components/ui/badge"
 
 const certifications = [
   {
-    name: "AWS Certified Solutions Architect",
-    issuer: "Amazon Web Services",
+    name: "Web Developer Bootcamp",
+    issuer: "Udemy",
     date: "2023",
-    id: "AWS-123456",
+    
   },
   {
-    name: "Google Cloud Professional Developer",
+    name: "Google AI-ML Virtual Internship",
     issuer: "Google Cloud",
-    date: "2022",
-    id: "GCP-789012",
+    date: "2023",
+    
   },
   {
-    name: "Microsoft Azure Developer Associate",
-    issuer: "Microsoft",
+    name: "Data Structures and Algorithms in Python",
+    issuer: "Nptel",
     date: "2022",
-    id: "AZ-204",
+    
   },
 ]
 
