@@ -6,10 +6,10 @@ export function Footer() {
     <footer className="border-t">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center space-x-6">
-          <Link href="https://github.com" className="text-muted-foreground hover:text-primary">
+          <Link href="https://github.com/vedkerkar10" className="text-muted-foreground hover:text-primary">
             <Github className="h-6 w-6" />
           </Link>
-          <Link href="https://instagram.com" className="text-muted-foreground hover:text-primary">
+          <Link href="https://www.instagram.com/ved.kerkar10/" className="text-muted-foreground hover:text-primary">
             <Instagram className="h-6 w-6" />
           </Link>
           <Link href="https://linkedin.com" className="text-muted-foreground hover:text-primary">

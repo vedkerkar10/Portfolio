@@ -43,7 +43,6 @@ export function Certifications() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {certifications.map((cert, index) => (
             <motion.div
-              key={cert.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -58,7 +57,7 @@ export function Certifications() {
                     <p className="text-sm text-muted-foreground">{cert.issuer}</p>
                     <div className="flex justify-between items-center">
                       <Badge variant="secondary">{cert.date}</Badge>
-                      <span className="text-xs text-muted-foreground">ID: {cert.id}</span>
+                      {/* <span className="text-xs text-muted-foreground">ID: {cert.id}</span> */}
                     </div>
                   </div>
                 </CardContent>
